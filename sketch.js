@@ -4,7 +4,6 @@ var mappa = new Mappa('MapboxGL', "pk.eyJ1IjoiYW5kcmVhYmVuZWRldHRpIiwiYSI6ImNqNW
 var s;
 var myLat;
 var myLon;
-
 var position;
 
 var options = {
@@ -12,35 +11,30 @@ var options = {
   lng: 0,
   zoom: 15,
   style: "mapbox://styles/mapbox/dark-v8"
-
 }
 
 function preload() {
   position = getCurrentPosition();
-
 }
 
 function setup() {
-  console.log(position);
-
-  canvas = createCanvas(windowWidth,windowHeight-160);
-
+  canvas = createCanvas(windowWidth,windowHeight-160); //create canvas without the horrible scrollling effect caused by the html part
   myLat = position.latitude;
   myLon = position.longitude;
 
   options.lat = myLat;
   options.lng = myLon;
 
-  myMap = mappa.tileMap(options); //dentro a tileMap mettiamo tutte le opzioni create
-  myMap.overlay(canvas);
+  myMap = mappa.tileMap(options); //group in tileMap all the informations
+  myMap.overlay(canvas); //cover the whole canvas with the map
 }
 
 function draw() {
   clear(); //delete all the contect that is inside our canvas
 
-var myPosition = myMap.latLngToPixel(myLat, myLon); //funzione che trasforma le cordinate lat e lon in x e y coordinate
+var myPosition = myMap.latLngToPixel(myLat, myLon); //from lat and lon to x and y
 
-
+//radar effect
 noFill();
 stroke('#39ff14');
 if (frameCount > 250) {
