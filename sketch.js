@@ -12,8 +12,8 @@ function preload(){
 }
 
 var options = {
-  lat: 45.4642200,
-  lng: 9.1905600,
+  lat: 0,
+  lng: 0,
   zoom: 13,
   style: 'mapbox://styles/pietroforino/ck2wdg4id1ivd1co69u1t7nys'
 }
