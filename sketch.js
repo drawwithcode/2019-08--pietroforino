@@ -1,6 +1,6 @@
 var myMap;
 var canvas;
-var mappa = new Mappa('MapboxGL', "pk.eyJ1IjoiYW5kcmVhYmVuZWRldHRpIiwiYSI6ImNqNWh2eGh3ejFqOG8zM3BrZjRucGZkOGEifQ.SmdBpUoSe3s0tm-OTDFY9Q"); //qui potrseti usare leaflet o mapbox o altro
+var mappa = new Mappa('MapboxGL', "pk.eyJ1IjoicGlldHJvZm9yaW5vIiwiYSI6ImNqeHgzd3JwajBrc2YzaXBma3UxODdmdWUifQ.8jG3b2D80IsptKlqlr0l8w"); //qui potrseti usare leaflet o mapbox o altro
 
 var myLat;
 var myLon;
