@@ -1,31 +1,61 @@
-let myMap;
-let canvas;
-const mappa = new Mappa('MapboxGL', "pk.eyJ1IjoicGlldHJvZm9yaW5vIiwiYSI6ImNqeHgzd3JwajBrc2YzaXBma3UxODdmdWUifQ.8jG3b2D80IsptKlqlr0l8w");
+var myMap;
+var canvas;
+var mappa = new Mappa('MapboxGL', "pk.eyJ1IjoiYW5kcmVhYmVuZWRldHRpIiwiYSI6ImNqNWh2eGh3ejFqOG8zM3BrZjRucGZkOGEifQ.SmdBpUoSe3s0tm-OTDFY9Q");
+var s;
+var myLat;
+var myLon;
 
-var duomoLat = 45.4641013;
-var duomoLon = 9.1897325;
+var position;
 
-// Lets put all our map options in a single object
-const options = {
-  lat: duomoLat,
-  lng: duomoLon,
-  zoom: 13,
-  style: "mapbox://styles/pietroforino/ck2wdg4id1ivd1co69u1t7nys" // default tile for Leaflet
+var options = {
+  lat: 0,
+  lng: 0,
+  zoom: 15,
+  style: "mapbox://styles/mapbox/dark-v8"
+
 }
 
-function setup(){
-  canvas = createCanvas(windowWidth,windowHeight);
+function preload() {
+  position = getCurrentPosition();
 
-  // Create a tile map with the options declared
-  myMap = mappa.tileMap(options);
+}
+
+function setup() {
+  console.log(position);
+
+  canvas = createCanvas(windowWidth,windowHeight-160);
+
+  myLat = position.latitude;
+  myLon = position.longitude;
+
+  options.lat = myLat;
+  options.lng = myLon;
+
+  myMap = mappa.tileMap(options); //dentro a tileMap mettiamo tutte le opzioni create
   myMap.overlay(canvas);
 }
 
-function draw(){
-  clear();
+function draw() {
+  clear(); //delete all the contect that is inside our canvas
 
-  var point = myMap.latLngToPixel(duomoLat, duomoLon);
-  fill(255, 0, 0);
-  noStroke();
-  ellipse(point.x, point.y, 10)
+var myPosition = myMap.latLngToPixel(myLat, myLon); //funzione che trasforma le cordinate lat e lon in x e y coordinate
+
+
+noFill();
+stroke('#39ff14');
+if (frameCount > 250) {
+for (var i = 0; i<=150; i++) {
+  ellipse(myPosition.x, myPosition.y, frameCount/i);
+}
+}
+
+// var radar = frameCount*2
+// if (radar >= 100) {
+//       radar=0
+//     }
+//
+// ellipse(myPosition.x, myPosition.y, radar);
+
+
+
 }
