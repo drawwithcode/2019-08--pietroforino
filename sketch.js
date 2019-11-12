@@ -1,6 +1,6 @@
 var myMap;
 var canvas;
-var mappa = new Mappa('MapboxGL', "pk.eyJ1IjoicGlldHJvZm9yaW5vIiwiYSI6ImNqeHgzd3JwajBrc2YzaXBma3UxODdmdWUifQ.8jG3b2D80IsptKlqlr0l8w"); //qui potrseti usare leaflet o mapbox o altro
+var mappa = new Mappa('MapboxGL', "pk.eyJ1IjoicGlldHJvZm9yaW5vIiwiYSI6ImNqeHgzd3JwajBrc2YzaXBma3UxODdmdWUifQ.8jG3b2D80IsptKlqlr0l8w");
 
 var myLat;
 var myLon;
@@ -12,8 +12,8 @@ function preload(){
 }
 
 var options = {
-  lat: 0,
-  lng: 0,
+  lat: 45.4642200,
+  lng: 9.1905600,
   zoom: 13,
   style: 'mapbox://styles/pietroforino/ck2wdg4id1ivd1co69u1t7nys'
 }
