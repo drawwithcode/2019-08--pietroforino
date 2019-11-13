@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
     <script src="p5.min.js"></script>
     <script src="p5.sound.min.js"></script>
     <script src="p5.geolocation.js"></script>
     <script src="https://unpkg.com/mappa-mundi/dist/mappa.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <script src="sketch.js"></script>
 
     <style media="screen">
@@ -16,17 +16,56 @@
         background: black;
         color: #39ff14;
         font-family: 'Space Mono', monospace;
+        padding: 0;
+        margin: 0;
       }
       h1 {
         font-size: 24px;
         padding: 10px;
       }
+
+      .typewriter h1 {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid #39ff14; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation:
+          typing 3.5s steps(40, end),
+          blink-caret .75s step-end infinite;
+      }
+
+        /* The typing effect */
+        @keyframes typing {
+          from { width: 0 }
+          to { width: 100% }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: #39ff14; }
+        }
     </style>
 
+    <script>
+    $(document).ready(function () {
+              $("#delayed").hide();
+              $("#delayed").delay(5000).fadeIn(100);
+          });
+    </script>
 
   </head>
   <body>
-    <h1>- We've finally located the most wanted criminal of the last year.</h1>
-    <h1>- Great, mark it on the map that we're going to get it!</h1>
+    <div style="height:160px">
+
+    <div class="typewriter">
+    <h1>- We've finally located the most wanted criminal of the last year. </h1>
+    </div>
+    <div class="typewriter" id="delayed" style="display:none">
+    <h1>- Great, mark it on the map: we're going to get it!</h1>
+  </div>
+
+      </div>
   </body>
 </html>

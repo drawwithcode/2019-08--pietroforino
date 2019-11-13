@@ -37,7 +37,7 @@ var myPosition = myMap.latLngToPixel(myLat, myLon); //from lat and lon to x and 
 //radar effect
 noFill();
 stroke('#39ff14');
-if (frameCount > 250) {
+if (frameCount > 430) {
 for (var i = 0; i<=150; i++) {
   ellipse(myPosition.x, myPosition.y, frameCount/i);
 }
